@@ -1,16 +1,16 @@
 import sys
 import os
 from osgeo import gdal
-from pathlib import Path
 import json
-import params as params
+
+INPUT_FOLDER = 'input'
 
 kwargs = {
     'allMetadata':True,
     'format':'json',
 }
 
-for subdir, dirs, files in os.walk(params.input_folder):
+for subdir, dirs, files in os.walk(INPUT_FOLDER):
     for file in files:
         filepath = subdir + os.sep + file
 
