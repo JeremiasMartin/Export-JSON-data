@@ -20,7 +20,7 @@ for subdir, dirs, files in os.walk(INPUT_FOLDER):
             
                 ds = gdal.Open(filepath, gdal.GA_ReadOnly)
                 data = gdal.Info(ds,**kwargs)
-                file = open('{}.json'.format(filepath),'w')
+                file = open('{}.json'.format(filepath.split('.')[0]),'w')
                 json.dump(data,file)
             
             except RuntimeError as e:
