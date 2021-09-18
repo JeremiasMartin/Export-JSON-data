@@ -12,7 +12,8 @@ kwargs = {
 
 for subdir, dirs, files in os.walk(INPUT_FOLDER):
     for file in files:
-        filepath = subdir + os.sep + file
+        
+        filepath = '{}{}{}'.format(subdir, os.sep, file)
 
         if (filepath.endswith(".tif") | filepath.endswith(".tiff")):
             
