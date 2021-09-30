@@ -21,8 +21,9 @@ for subdir, dirs, files in os.walk(INPUT_FOLDER):
             
                 ds = gdal.Open(filepath, gdal.GA_ReadOnly)
                 data = gdal.Info(ds,**kwargs)
-                file = open('{}.json'.format(filepath.split('.')[0]),'w')
-                json.dump(data,file)
+                filedata = open('{}.json'.format(filepath.split('.')[0]),'w')
+                json.dump(data,filedata)
+                print('Pid {} was completed successfully'.format(file.split('.')[0]))
             
             except RuntimeError as e:
                 print('Unable to open {}'.format(filepath))
@@ -30,4 +31,4 @@ for subdir, dirs, files in os.walk(INPUT_FOLDER):
                 sys.exit(1)
 
 
-file.close()
+filedata.close()
